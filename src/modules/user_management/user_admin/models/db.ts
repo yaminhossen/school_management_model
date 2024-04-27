@@ -13,6 +13,7 @@ import * as user_teacher_informations_model from './18_user_teacher_informations
 import * as user_parent_informations_model from './19_user_parent_informations_model';
 import * as user_student_educational_backgrounds_model from './110_user_student_educational_backgrounds_model';
 import * as user_student_informations_model from './111_user_student_informations_model';
+import * as user_login_histories_model from './112_user_login_histories_model';
 
 import * as user_branch_admins_model from './12_user_branch_admins_model';
 import * as project_model from '../../user_admin copy/models/project_model';
@@ -41,6 +42,7 @@ interface models {
     UserParentInformationsModel: typeof user_parent_informations_model.DataModel;
     UserStudentEducationalBackgroundsModel: typeof user_student_educational_backgrounds_model.DataModel;
     UserStudentInformationsModel: typeof user_student_informations_model.DataModel;
+    UserLoginHistoriesModel: typeof user_login_histories_model.DataModel;
     UserBranchAdminsModel: typeof user_branch_admins_model.DataModel;
     sequelize: Sequelize;
 }
@@ -63,6 +65,7 @@ const db = async function (): Promise<models> {
         user_student_educational_backgrounds_model.init(sequelize);
     const UserStudentInformationsModel =
         user_student_informations_model.init(sequelize);
+    const UserLoginHistoriesModel = user_login_histories_model.init(sequelize);
     const UserBranchAdminsModel = user_branch_admins_model.init(sequelize);
 
     await sequelize.sync();
@@ -92,6 +95,7 @@ const db = async function (): Promise<models> {
         UserParentInformationsModel,
         UserStudentEducationalBackgroundsModel,
         UserStudentInformationsModel,
+        UserLoginHistoriesModel,
         UserBranchAdminsModel,
 
         sequelize,
