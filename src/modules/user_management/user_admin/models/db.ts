@@ -3,9 +3,13 @@ import {
     Sequelize,
 } from 'sequelize';
 import * as user_model from './user_model';
-import * as user_admin_model from './user_admin_model';
-import * as user_staffs_model from './user_staffs_model';
-import * as user_branch_admins_model from './user_branch_admins_model';
+import * as user_admin_model from './11_user_admins_model';
+import * as user_staffs_model from './13_user_staffs_model';
+import * as user_teachers_model from './14_user_teachers_model';
+import * as user_students_model from './15_user_students_model';
+import * as user_parents_model from './16_user_parents_model';
+import * as user_login_histories_model from './17_user_login_histories_model';
+import * as user_branch_admins_model from './12_user_branch_admins_model';
 import * as project_model from '../../user_admin copy/models/project_model';
 require('dotenv').config();
 
@@ -24,6 +28,10 @@ interface models {
     Project: typeof project_model.DataModel;
     UserAdminModel: typeof user_admin_model.DataModel;
     UserStaffsModel: typeof user_staffs_model.DataModel;
+    UserTeachersModel: typeof user_teachers_model.DataModel;
+    UserStudentsModel: typeof user_students_model.DataModel;
+    UserParentsModel: typeof user_parents_model.DataModel;
+    UserLoginHistoriesModel: typeof user_login_histories_model.DataModel;
     UserBranchAdminsModel: typeof user_branch_admins_model.DataModel;
     sequelize: Sequelize;
 }
@@ -33,6 +41,10 @@ const db = async function (): Promise<models> {
 
     const UserAdminModel = user_admin_model.init(sequelize);
     const UserStaffsModel = user_staffs_model.init(sequelize);
+    const UserTeachersModel = user_teachers_model.init(sequelize);
+    const UserStudentsModel = user_students_model.init(sequelize);
+    const UserParentsModel = user_parents_model.init(sequelize);
+    const UserLoginHistoriesModel = user_login_histories_model.init(sequelize);
     const UserBranchAdminsModel = user_branch_admins_model.init(sequelize);
 
     await sequelize.sync();
@@ -54,6 +66,10 @@ const db = async function (): Promise<models> {
         Project,
         UserAdminModel,
         UserStaffsModel,
+        UserTeachersModel,
+        UserStudentsModel,
+        UserParentsModel,
+        UserLoginHistoriesModel,
         UserBranchAdminsModel,
 
         sequelize,
