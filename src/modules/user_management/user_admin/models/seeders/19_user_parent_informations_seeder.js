@@ -16,20 +16,21 @@ module.exports = {
 
 
         let data = [];
-        function set_data(id, user_id, user_table_name,date,device) {
+        function set_data(id,user_parent_id, name, ) {
             data.push({
                 id,
-                user_id, user_table_name, date, device,
+                user_parent_id,
+                name,
                 created_at:'2024-02-14',
                 updated_at:'2024-02-14',
             })
         }
-        set_data(1, 1, 'user_staffs', '2024-02-14','phone');
-        set_data(2, 1, 'user_staffs', '2024-02-14','computer');
-        set_data(2, 1, 'user_staffs', '2024-02-14','phone');
+        set_data(1, 1, 'abdullah');
+        set_data(2, 1, 'abdur rahman');
+        set_data(3, 1, 'saidur');
 
-        queryInterface.bulkDelete('user_login_histories');
-        await queryInterface.bulkInsert('user_login_histories', data, {});
+        queryInterface.bulkDelete('user_parent_informations');
+        await queryInterface.bulkInsert('user_parent_informations', data, {});
     },
 
     async down(queryInterface, Sequelize) {
@@ -40,6 +41,6 @@ module.exports = {
          * Example:
          * await queryInterface.bulkDelete('People', null, {});
          */
-        await queryInterface.bulkDelete('user_login_histories', null, {});
+        await queryInterface.bulkDelete('user_parent_informations', null, {});
     },
 };

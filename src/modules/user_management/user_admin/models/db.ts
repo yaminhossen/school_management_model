@@ -8,7 +8,11 @@ import * as user_staffs_model from './13_user_staffs_model';
 import * as user_teachers_model from './14_user_teachers_model';
 import * as user_students_model from './15_user_students_model';
 import * as user_parents_model from './16_user_parents_model';
-import * as user_login_histories_model from './17_user_login_histories_model';
+import * as user_staff_informations_model from './17_user_staff_informations_model';
+import * as user_teacher_informations_model from './18_user_teacher_informations_model';
+import * as user_parent_informations_model from './19_user_parent_informations_model';
+import * as user_student_educational_backgrounds_model from './110_user_student_educational_backgrounds_model';
+
 import * as user_branch_admins_model from './12_user_branch_admins_model';
 import * as project_model from '../../user_admin copy/models/project_model';
 require('dotenv').config();
@@ -31,7 +35,10 @@ interface models {
     UserTeachersModel: typeof user_teachers_model.DataModel;
     UserStudentsModel: typeof user_students_model.DataModel;
     UserParentsModel: typeof user_parents_model.DataModel;
-    UserLoginHistoriesModel: typeof user_login_histories_model.DataModel;
+    UserStaffInformationsModel: typeof user_staff_informations_model.DataModel;
+    UserTeacherInformationsModel: typeof user_teacher_informations_model.DataModel;
+    UserParentInformationsModel: typeof user_parent_informations_model.DataModel;
+    UserStudentEducationalBackgroundsModel: typeof user_student_educational_backgrounds_model.DataModel;
     UserBranchAdminsModel: typeof user_branch_admins_model.DataModel;
     sequelize: Sequelize;
 }
@@ -44,7 +51,14 @@ const db = async function (): Promise<models> {
     const UserTeachersModel = user_teachers_model.init(sequelize);
     const UserStudentsModel = user_students_model.init(sequelize);
     const UserParentsModel = user_parents_model.init(sequelize);
-    const UserLoginHistoriesModel = user_login_histories_model.init(sequelize);
+    const UserStaffInformationsModel =
+        user_staff_informations_model.init(sequelize);
+    const UserTeacherInformationsModel =
+        user_teacher_informations_model.init(sequelize);
+    const UserParentInformationsModel =
+        user_parent_informations_model.init(sequelize);
+    const UserStudentEducationalBackgroundsModel =
+        user_student_educational_backgrounds_model.init(sequelize);
     const UserBranchAdminsModel = user_branch_admins_model.init(sequelize);
 
     await sequelize.sync();
@@ -69,7 +83,10 @@ const db = async function (): Promise<models> {
         UserTeachersModel,
         UserStudentsModel,
         UserParentsModel,
-        UserLoginHistoriesModel,
+        UserStaffInformationsModel,
+        UserTeacherInformationsModel,
+        UserParentInformationsModel,
+        UserStudentEducationalBackgroundsModel,
         UserBranchAdminsModel,
 
         sequelize,

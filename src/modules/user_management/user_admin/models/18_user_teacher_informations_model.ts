@@ -24,8 +24,8 @@ import {
 } from 'sequelize';
 
 // import {DataModel as Project} from "./project_model"
-const tableName = 'user_login_histories';
-const modelName = 'UserLoginHistoriesModel';
+const tableName = 'user_teacher_informations';
+const modelName = 'UserTeacherInformationsModel';
 
 type Infer = InferAttributes<DataModel>;
 type InferCreation = InferCreationAttributes<DataModel>;
@@ -33,12 +33,12 @@ type InferCreation = InferCreationAttributes<DataModel>;
 class DataModel extends Model<Infer, InferCreation> {
     declare id: CreationOptional<number>;
 
-    declare user_id: number;
-    declare user_table_name: string;
-    declare date: string | null;
-    declare device: string | null;
-
-    declare false_attempt_count?: number;
+    declare user_teacher_id: number;
+    declare name: string;
+    // declare email: string | null;
+    // declare phone_number: string | null;
+    // declare image: string | null;
+    // declare password: string;
     // declare auth_token: string | null;
 
     declare status?: number;
@@ -56,23 +56,26 @@ function init(sequelize: Sequelize) {
                 autoIncrement: true,
                 primaryKey: true,
             },
-            user_id: {
-                type: new DataTypes.NUMBER(),
+            user_teacher_id: {
+                type: new DataTypes.BIGINT(),
                 allowNull: true,
             },
-            user_table_name: {
-                type: new DataTypes.STRING(60),
-                allowNull: true,
-            },
-            date: {
+            name: {
                 type: new DataTypes.STRING(50),
                 allowNull: true,
             },
-            device: {
-                type: new DataTypes.TEXT(),
-                allowNull: true,
-            },
-
+            // email: {
+            //     type: new DataTypes.STRING(120),
+            //     allowNull: true,
+            // },
+            // phone_number: {
+            //     type: new DataTypes.STRING(120),
+            //     allowNull: true,
+            // },
+            // image: {
+            //     type: new DataTypes.STRING(120),
+            //     allowNull: true,
+            // },
             // password: {
             //     type: new DataTypes.STRING(120),
             //     allowNull: true,
@@ -81,11 +84,7 @@ function init(sequelize: Sequelize) {
             //     type: new DataTypes.STRING(120),
             //     allowNull: true,
             // },
-            false_attempt_count: {
-                type: new DataTypes.TINYINT(),
-                allowNull: true,
-                defaultValue: 0,
-            },
+
             status: {
                 type: new DataTypes.TINYINT(),
                 allowNull: true,
