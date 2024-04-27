@@ -14,8 +14,9 @@ module.exports = {
          */
 
         let users = [];
-        ['selim', 'karim', 'sahed', 'tarek', 'shafiq'].forEach(async (i) => {
+        ['selim', 'karim', 'sahed', 'tarek', 'shafiq'].forEach(async (i, index) => {
             users.push({
+                id: index + 1,
                 name: i,
                 preferred_name: i,
                 status: 1,
@@ -23,7 +24,7 @@ module.exports = {
                 updated_at: '2024-02-01 11:45:01',
             });
         });
-
+        queryInterface.bulkDelete('user_models');
         await queryInterface.bulkInsert('user_models', users, {});
     },
 
