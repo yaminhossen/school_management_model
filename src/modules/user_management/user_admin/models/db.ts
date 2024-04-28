@@ -3,6 +3,8 @@ import {
     Sequelize,
 } from 'sequelize';
 import * as user_model from './user_model';
+import * as branches_model from './21_branches_model';
+import * as branch_admins_model from './22_branch_admin_model';
 import * as user_admin_model from './11_user_admins_model';
 import * as user_staffs_model from './13_user_staffs_model';
 import * as user_teachers_model from './14_user_teachers_model';
@@ -32,6 +34,8 @@ const sequelize = new Sequelize(
 interface models {
     User: typeof user_model.DataModel;
     Project: typeof project_model.DataModel;
+    BranchesModel: typeof branches_model.DataModel;
+    BranchAdminsModel: typeof branch_admins_model.DataModel;
     UserAdminModel: typeof user_admin_model.DataModel;
     UserStaffsModel: typeof user_staffs_model.DataModel;
     UserTeachersModel: typeof user_teachers_model.DataModel;
@@ -51,6 +55,8 @@ const db = async function (): Promise<models> {
     const Project = project_model.init(sequelize);
 
     const UserAdminModel = user_admin_model.init(sequelize);
+    const BranchesModel = branches_model.init(sequelize);
+    const BranchAdminsModel = branch_admins_model.init(sequelize);
     const UserStaffsModel = user_staffs_model.init(sequelize);
     const UserTeachersModel = user_teachers_model.init(sequelize);
     const UserStudentsModel = user_students_model.init(sequelize);
@@ -97,6 +103,8 @@ const db = async function (): Promise<models> {
         UserStudentInformationsModel,
         UserLoginHistoriesModel,
         UserBranchAdminsModel,
+        BranchesModel,
+        BranchAdminsModel,
 
         sequelize,
     };
