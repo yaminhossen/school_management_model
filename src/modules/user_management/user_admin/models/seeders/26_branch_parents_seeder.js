@@ -25,9 +25,9 @@ module.exports = {
                 updated_at:'2024-02-14',
             })
         }
-        set_data(1,22, 'active',21);
-        set_data(2,33, 'active',21);
-        set_data(3,11, 'active',32);
+        set_data(1,44, 'active',21);
+        set_data(2,55, 'active',21);
+        set_data(3,66, 'active',32);
 
         queryInterface.bulkDelete('branch_parents');
         await queryInterface.bulkInsert('branch_parents', data, {});

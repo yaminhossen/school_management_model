@@ -10,6 +10,7 @@ import * as branch_buildings_model from './27_branch_buildings_model';
 import * as branch_building_rooms_model from './28_branch_building_rooms_model';
 import * as branch_contacts_model from './29_branch_contacts_model';
 import * as branch_informations_model from './210_branch_informations_model';
+import * as branch_classes_model from './31_branch_classes_model';
 import * as branch_parents_model from './26_branch_parents_model';
 import * as branch_staffs_model from './23_branch_staffs_model';
 import * as branch_teachers_model from './24_branch_teachers_model';
@@ -45,6 +46,7 @@ interface models {
     BranchesModel: typeof branches_model.DataModel;
     BranchAdminsModel: typeof branch_admins_model.DataModel;
     BranchBuildingsModel: typeof branch_buildings_model.DataModel;
+    BranchClassesModel: typeof branch_classes_model.DataModel;
     BranchContactsModel: typeof branch_contacts_model.DataModel;
     BranchInformationsModel: typeof branch_informations_model.DataModel;
     BranchBuildingRoomsModel: typeof branch_building_rooms_model.DataModel;
@@ -75,6 +77,7 @@ const db = async function (): Promise<models> {
     const BranchAdminsModel = branch_admins_model.init(sequelize);
     const BranchBuildingsModel = branch_buildings_model.init(sequelize);
     const BranchContactsModel = branch_contacts_model.init(sequelize);
+    const BranchClassesModel = branch_classes_model.init(sequelize);
     const BranchInformationsModel = branch_informations_model.init(sequelize);
     const BranchBuildingRoomsModel =
         branch_building_rooms_model.init(sequelize);
@@ -138,6 +141,7 @@ const db = async function (): Promise<models> {
         BranchBuildingRoomsModel,
         BranchContactsModel,
         BranchInformationsModel,
+        BranchClassesModel,
 
         sequelize,
     };
