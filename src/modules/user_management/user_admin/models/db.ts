@@ -12,6 +12,11 @@ import * as branch_contacts_model from './29_branch_contacts_model';
 import * as branch_informations_model from './210_branch_informations_model';
 import * as branch_classes_model from './31_branch_classes_model';
 import * as branch_class_fee_discount_model from './32_branch_class_fee_discounts_model';
+import * as branch_class_fee_waiver_model from './33_branch_class_fee_waivers_model';
+import * as branch_class_fee_types_model from './34_branch_class_fee_types_model';
+import * as branch_class_fees_model from './35_branch_class_fees_model';
+import * as branch_class_rooms_model from './36_branch_class_rooms_model';
+
 import * as branch_parents_model from './26_branch_parents_model';
 import * as branch_staffs_model from './23_branch_staffs_model';
 import * as branch_teachers_model from './24_branch_teachers_model';
@@ -49,6 +54,11 @@ interface models {
     BranchBuildingsModel: typeof branch_buildings_model.DataModel;
     BranchClassesModel: typeof branch_classes_model.DataModel;
     BranchClassFeeDiscountsModel: typeof branch_class_fee_discount_model.DataModel;
+    BranchClassFeeWaiversModel: typeof branch_class_fee_waiver_model.DataModel;
+    BranchClassFeeTypesModel: typeof branch_class_fee_types_model.DataModel;
+    BranchClassFeesModel: typeof branch_class_fees_model.DataModel;
+    BranchClassRoomsModel: typeof branch_class_rooms_model.DataModel;
+
     BranchContactsModel: typeof branch_contacts_model.DataModel;
     BranchInformationsModel: typeof branch_informations_model.DataModel;
     BranchBuildingRoomsModel: typeof branch_building_rooms_model.DataModel;
@@ -82,6 +92,13 @@ const db = async function (): Promise<models> {
     const BranchClassesModel = branch_classes_model.init(sequelize);
     const BranchClassFeeDiscountsModel =
         branch_class_fee_discount_model.init(sequelize);
+    const BranchClassFeeWaiversModel =
+        branch_class_fee_waiver_model.init(sequelize);
+    const BranchClassFeeTypesModel =
+        branch_class_fee_types_model.init(sequelize);
+    const BranchClassFeesModel = branch_class_fees_model.init(sequelize);
+    const BranchClassRoomsModel = branch_class_rooms_model.init(sequelize);
+
     const BranchInformationsModel = branch_informations_model.init(sequelize);
     const BranchBuildingRoomsModel =
         branch_building_rooms_model.init(sequelize);
@@ -147,6 +164,10 @@ const db = async function (): Promise<models> {
         BranchInformationsModel,
         BranchClassesModel,
         BranchClassFeeDiscountsModel,
+        BranchClassFeeWaiversModel,
+        BranchClassFeeTypesModel,
+        BranchClassFeesModel,
+        BranchClassRoomsModel,
 
         sequelize,
     };
