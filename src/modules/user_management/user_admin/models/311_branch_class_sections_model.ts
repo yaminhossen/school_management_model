@@ -24,8 +24,8 @@ import {
 } from 'sequelize';
 
 // import {DataModel as Project} from "./project_model"
-const tableName = 'branch_class_resources';
-const modelName = 'BranchClassResourcesModel';
+const tableName = 'branch_class_sections';
+const modelName = 'BranchClassSectionsModel';
 
 type Infer = InferAttributes<DataModel>;
 type InferCreation = InferCreationAttributes<DataModel>;
@@ -36,9 +36,6 @@ class DataModel extends Model<Infer, InferCreation> {
     declare branch_id: number;
     declare branch_class_id: number;
     declare title: string;
-    declare description: string;
-    declare attachment: string;
-    declare branch_class_subject_id: number;
 
     declare status?: number;
     declare creator?: number;
@@ -65,18 +62,6 @@ function init(sequelize: Sequelize) {
             },
             title: {
                 type: new DataTypes.STRING(100),
-                allowNull: true,
-            },
-            description: {
-                type: new DataTypes.TEXT(),
-                allowNull: true,
-            },
-            attachment: {
-                type: new DataTypes.TEXT(),
-                allowNull: true,
-            },
-            branch_class_subject_id: {
-                type: new DataTypes.BIGINT(),
                 allowNull: true,
             },
 

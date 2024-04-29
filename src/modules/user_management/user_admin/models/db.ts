@@ -20,6 +20,8 @@ import * as branch_class_routines_model from './37_branch_class_routines_model';
 import * as branch_class_students_model from './38_branch_class_students_model';
 import * as branch_class_routine_day_times_model from './39_branch_class_routine_day_times_model';
 import * as branch_class_resources_model from './310_branch_class_resources_model';
+import * as branch_class_sections_model from './311_branch_class_sections_model';
+import * as branch_class_subject_teachers_model from './312_branch_class_subject_teachers_model';
 
 import * as branch_parents_model from './26_branch_parents_model';
 import * as branch_staffs_model from './23_branch_staffs_model';
@@ -66,6 +68,8 @@ interface models {
     BranchClassStudentsModel: typeof branch_class_students_model.DataModel;
     BranchClassRoutineDayTimesModel: typeof branch_class_routine_day_times_model.DataModel;
     BranchClassResourcesModel: typeof branch_class_resources_model.DataModel;
+    BranchClassSectionsModel: typeof branch_class_sections_model.DataModel;
+    BranchClassSubjectTeachersModel: typeof branch_class_subject_teachers_model.DataModel;
 
     BranchContactsModel: typeof branch_contacts_model.DataModel;
     BranchInformationsModel: typeof branch_informations_model.DataModel;
@@ -114,6 +118,10 @@ const db = async function (): Promise<models> {
         branch_class_routine_day_times_model.init(sequelize);
     const BranchClassResourcesModel =
         branch_class_resources_model.init(sequelize);
+    const BranchClassSectionsModel =
+        branch_class_sections_model.init(sequelize);
+    const BranchClassSubjectTeachersModel =
+        branch_class_subject_teachers_model.init(sequelize);
 
     const BranchInformationsModel = branch_informations_model.init(sequelize);
     const BranchBuildingRoomsModel =
@@ -188,6 +196,8 @@ const db = async function (): Promise<models> {
         BranchClassStudentsModel,
         BranchClassRoutineDayTimesModel,
         BranchClassResourcesModel,
+        BranchClassSectionsModel,
+        BranchClassSubjectTeachersModel,
 
         sequelize,
     };
