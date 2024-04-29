@@ -22,6 +22,7 @@ import * as branch_class_routine_day_times_model from './39_branch_class_routine
 import * as branch_class_resources_model from './310_branch_class_resources_model';
 import * as branch_class_sections_model from './311_branch_class_sections_model';
 import * as branch_class_subject_teachers_model from './312_branch_class_subject_teachers_model';
+import * as branch_class_subjects_model from './313_branch_class_subjects_model';
 
 import * as branch_parents_model from './26_branch_parents_model';
 import * as branch_staffs_model from './23_branch_staffs_model';
@@ -70,6 +71,7 @@ interface models {
     BranchClassResourcesModel: typeof branch_class_resources_model.DataModel;
     BranchClassSectionsModel: typeof branch_class_sections_model.DataModel;
     BranchClassSubjectTeachersModel: typeof branch_class_subject_teachers_model.DataModel;
+    BranchClassSubjectsModel: typeof branch_class_subjects_model.DataModel;
 
     BranchContactsModel: typeof branch_contacts_model.DataModel;
     BranchInformationsModel: typeof branch_informations_model.DataModel;
@@ -122,6 +124,8 @@ const db = async function (): Promise<models> {
         branch_class_sections_model.init(sequelize);
     const BranchClassSubjectTeachersModel =
         branch_class_subject_teachers_model.init(sequelize);
+    const BranchClassSubjectsModel =
+        branch_class_subjects_model.init(sequelize);
 
     const BranchInformationsModel = branch_informations_model.init(sequelize);
     const BranchBuildingRoomsModel =
@@ -198,6 +202,7 @@ const db = async function (): Promise<models> {
         BranchClassResourcesModel,
         BranchClassSectionsModel,
         BranchClassSubjectTeachersModel,
+        BranchClassSubjectsModel,
 
         sequelize,
     };
