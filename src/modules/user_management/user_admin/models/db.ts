@@ -32,6 +32,7 @@ import * as teacher_evaluation_criterias_model from './53_teacher_evaluation_cri
 import * as teacher_kpi_reports_model from './54_teacher_kpi_reports_model';
 import * as student_attendances_model from './61_student_attendances_model';
 import * as teacher_attendances_model from './62_teacher_attendances_model';
+import * as staff_attendances_model from './63_staff_attendances_model';
 
 import * as branch_parents_model from './26_branch_parents_model';
 import * as branch_staffs_model from './23_branch_staffs_model';
@@ -90,6 +91,7 @@ interface models {
     TeacherKpiReportsModel: typeof teacher_kpi_reports_model.DataModel;
     StudentAttendancesModel: typeof student_attendances_model.DataModel;
     TeacherAttendancesModel: typeof teacher_attendances_model.DataModel;
+    StaffAttendancesModel: typeof staff_attendances_model.DataModel;
 
     BranchContactsModel: typeof branch_contacts_model.DataModel;
     BranchInformationsModel: typeof branch_informations_model.DataModel;
@@ -157,6 +159,7 @@ const db = async function (): Promise<models> {
     const TeacherKpiReportsModel = teacher_kpi_reports_model.init(sequelize);
     const StudentAttendancesModel = student_attendances_model.init(sequelize);
     const TeacherAttendancesModel = teacher_attendances_model.init(sequelize);
+    const StaffAttendancesModel = staff_attendances_model.init(sequelize);
 
     const BranchInformationsModel = branch_informations_model.init(sequelize);
     const BranchBuildingRoomsModel =
@@ -243,6 +246,7 @@ const db = async function (): Promise<models> {
         TeacherKpiReportsModel,
         StudentAttendancesModel,
         TeacherAttendancesModel,
+        StaffAttendancesModel,
 
         sequelize,
     };
