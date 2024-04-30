@@ -24,6 +24,7 @@ import * as branch_class_sections_model from './311_branch_class_sections_model'
 import * as branch_class_subject_teachers_model from './312_branch_class_subject_teachers_model';
 import * as branch_class_subjects_model from './313_branch_class_subjects_model';
 import * as student_evaluations_model from './41_student_evaluations_model';
+import * as student_overall_evaluations_model from './42_student_overall_evaluations_model';
 
 import * as branch_parents_model from './26_branch_parents_model';
 import * as branch_staffs_model from './23_branch_staffs_model';
@@ -74,6 +75,7 @@ interface models {
     BranchClassSubjectTeachersModel: typeof branch_class_subject_teachers_model.DataModel;
     BranchClassSubjectsModel: typeof branch_class_subjects_model.DataModel;
     StudentEvaluationsModel: typeof student_evaluations_model.DataModel;
+    StudentOverallEvaluationsModel: typeof student_overall_evaluations_model.DataModel;
 
     BranchContactsModel: typeof branch_contacts_model.DataModel;
     BranchInformationsModel: typeof branch_informations_model.DataModel;
@@ -129,6 +131,8 @@ const db = async function (): Promise<models> {
     const BranchClassSubjectsModel =
         branch_class_subjects_model.init(sequelize);
     const StudentEvaluationsModel = student_evaluations_model.init(sequelize);
+    const StudentOverallEvaluationsModel =
+        student_overall_evaluations_model.init(sequelize);
 
     const BranchInformationsModel = branch_informations_model.init(sequelize);
     const BranchBuildingRoomsModel =
@@ -207,6 +211,7 @@ const db = async function (): Promise<models> {
         BranchClassSubjectTeachersModel,
         BranchClassSubjectsModel,
         StudentEvaluationsModel,
+        StudentOverallEvaluationsModel,
 
         sequelize,
     };
