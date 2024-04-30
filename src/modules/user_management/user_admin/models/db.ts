@@ -24,8 +24,14 @@ import * as branch_class_sections_model from './311_branch_class_sections_model'
 import * as branch_class_subject_teachers_model from './312_branch_class_subject_teachers_model';
 import * as branch_class_subjects_model from './313_branch_class_subjects_model';
 import * as student_evaluations_model from './41_student_evaluations_model';
+import * as teacher_evaluations_model from './51_teacher_evaluations_model';
 import * as student_overall_evaluations_model from './42_student_overall_evaluations_model';
+import * as teacher_overall_evaluations_model from './52_teacher_overall_evaluations_model';
 import * as student_evaluation_criterias_model from './43_student_evaluation_criterias_model';
+import * as teacher_evaluation_criterias_model from './53_teacher_evaluation_criterias_model';
+import * as teacher_kpi_reports_model from './54_teacher_kpi_reports_model';
+import * as student_attendances_model from './61_student_attendances_model';
+import * as teacher_attendances_model from './62_teacher_attendances_model';
 
 import * as branch_parents_model from './26_branch_parents_model';
 import * as branch_staffs_model from './23_branch_staffs_model';
@@ -76,8 +82,14 @@ interface models {
     BranchClassSubjectTeachersModel: typeof branch_class_subject_teachers_model.DataModel;
     BranchClassSubjectsModel: typeof branch_class_subjects_model.DataModel;
     StudentEvaluationsModel: typeof student_evaluations_model.DataModel;
+    TeacherEvaluationsModel: typeof teacher_evaluations_model.DataModel;
     StudentOverallEvaluationsModel: typeof student_overall_evaluations_model.DataModel;
+    TeacherOverallEvaluationsModel: typeof teacher_overall_evaluations_model.DataModel;
     StudentEvaluationCriteriasModel: typeof student_evaluation_criterias_model.DataModel;
+    TeacherEvaluationCriteriasModel: typeof teacher_evaluation_criterias_model.DataModel;
+    TeacherKpiReportsModel: typeof teacher_kpi_reports_model.DataModel;
+    StudentAttendancesModel: typeof student_attendances_model.DataModel;
+    TeacherAttendancesModel: typeof teacher_attendances_model.DataModel;
 
     BranchContactsModel: typeof branch_contacts_model.DataModel;
     BranchInformationsModel: typeof branch_informations_model.DataModel;
@@ -133,10 +145,18 @@ const db = async function (): Promise<models> {
     const BranchClassSubjectsModel =
         branch_class_subjects_model.init(sequelize);
     const StudentEvaluationsModel = student_evaluations_model.init(sequelize);
+    const TeacherEvaluationsModel = teacher_evaluations_model.init(sequelize);
     const StudentOverallEvaluationsModel =
         student_overall_evaluations_model.init(sequelize);
+    const TeacherOverallEvaluationsModel =
+        teacher_overall_evaluations_model.init(sequelize);
     const StudentEvaluationCriteriasModel =
         student_evaluation_criterias_model.init(sequelize);
+    const TeacherEvaluationCriteriasModel =
+        teacher_evaluation_criterias_model.init(sequelize);
+    const TeacherKpiReportsModel = teacher_kpi_reports_model.init(sequelize);
+    const StudentAttendancesModel = student_attendances_model.init(sequelize);
+    const TeacherAttendancesModel = teacher_attendances_model.init(sequelize);
 
     const BranchInformationsModel = branch_informations_model.init(sequelize);
     const BranchBuildingRoomsModel =
@@ -217,6 +237,12 @@ const db = async function (): Promise<models> {
         StudentEvaluationsModel,
         StudentOverallEvaluationsModel,
         StudentEvaluationCriteriasModel,
+        TeacherEvaluationsModel,
+        TeacherOverallEvaluationsModel,
+        TeacherEvaluationCriteriasModel,
+        TeacherKpiReportsModel,
+        StudentAttendancesModel,
+        TeacherAttendancesModel,
 
         sequelize,
     };
