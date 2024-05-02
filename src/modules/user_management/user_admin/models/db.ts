@@ -17,6 +17,9 @@ import * as branch_employee_job_pay_grades_model from './81_brach_employee_job_p
 import * as branch_employee_job_positions_model from './82_branch_employee_job_positions_model';
 import * as branch_employee_salaries_model from './83_branch_employee_salaries_model';
 import * as branch_employee_payroll_transactions_model from './84_branch_employee_payroll_transactions_model';
+import * as account_categories_model from './91_account_categories_model';
+import * as accounts_model from './92_accounts_model';
+import * as account_periods_model from './93_accounts_periods_model';
 
 require('dotenv').config();
 
@@ -45,6 +48,9 @@ interface models {
     BranchEmployeeJobPositionsModel: typeof branch_employee_job_positions_model.DataModel;
     BranchEmployeeSalariesModel: typeof branch_employee_salaries_model.DataModel;
     BranchEmployeePayrollTransactionsModel: typeof branch_employee_payroll_transactions_model.DataModel;
+    AccountCategoriesModel: typeof account_categories_model.DataModel;
+    AccountsModel: typeof accounts_model.DataModel;
+    AccountPeriodsModel: typeof account_periods_model.DataModel;
 
     sequelize: Sequelize;
 }
@@ -69,6 +75,9 @@ const db = async function (): Promise<models> {
         branch_employee_salaries_model.init(sequelize);
     const BranchEmployeePayrollTransactionsModel =
         branch_employee_payroll_transactions_model.init(sequelize);
+    const AccountCategoriesModel = account_categories_model.init(sequelize);
+    const AccountsModel = accounts_model.init(sequelize);
+    const AccountPeriodsModel = account_periods_model.init(sequelize);
 
     await sequelize.sync();
 
@@ -99,6 +108,9 @@ const db = async function (): Promise<models> {
         BranchEmployeeJobPositionsModel,
         BranchEmployeeSalariesModel,
         BranchEmployeePayrollTransactionsModel,
+        AccountCategoriesModel,
+        AccountsModel,
+        AccountPeriodsModel,
 
         sequelize,
     };
