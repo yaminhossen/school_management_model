@@ -11,6 +11,8 @@ import * as staff_attendances_model from './63_staff_attendances_model';
 import * as leave_types_model from './64_leave_types_model';
 import * as leave_applications_model from './65_leave_applications_model';
 import * as leave_application_paids_model from './66_leave_application_paids_model';
+import * as academic_calendars_model from './71_academic_calendars_model';
+import * as academic_calendar_event_types from './72_academic_calendar_event_types_model';
 
 require('dotenv').config();
 
@@ -33,6 +35,8 @@ interface models {
     LeaveTypesModel: typeof leave_types_model.DataModel;
     LeaveApplicationsModel: typeof leave_applications_model.DataModel;
     LeaveApplicationPaidsModel: typeof leave_application_paids_model.DataModel;
+    AcademicCalendarsModel: typeof academic_calendars_model.DataModel;
+    AcademicCalendarEventTypesModel: typeof academic_calendar_event_types.DataModel;
 
     sequelize: Sequelize;
 }
@@ -46,6 +50,9 @@ const db = async function (): Promise<models> {
     const LeaveApplicationsModel = leave_applications_model.init(sequelize);
     const LeaveApplicationPaidsModel =
         leave_application_paids_model.init(sequelize);
+    const AcademicCalendarsModel = academic_calendars_model.init(sequelize);
+    const AcademicCalendarEventTypesModel =
+        academic_calendar_event_types.init(sequelize);
 
     await sequelize.sync();
 
@@ -70,6 +77,8 @@ const db = async function (): Promise<models> {
         LeaveTypesModel,
         LeaveApplicationsModel,
         LeaveApplicationPaidsModel,
+        AcademicCalendarsModel,
+        AcademicCalendarEventTypesModel,
 
         sequelize,
     };
