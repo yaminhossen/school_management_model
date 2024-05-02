@@ -13,6 +13,8 @@ import * as leave_applications_model from './65_leave_applications_model';
 import * as leave_application_paids_model from './66_leave_application_paids_model';
 import * as academic_calendars_model from './71_academic_calendars_model';
 import * as academic_calendar_event_types from './72_academic_calendar_event_types_model';
+import * as branch_employee_job_pay_grades_model from './81_brach_employee_job_pay_grades_model';
+import * as branch_employee_job_positions_model from './82_branch_employee_job_positions_model';
 
 require('dotenv').config();
 
@@ -37,6 +39,8 @@ interface models {
     LeaveApplicationPaidsModel: typeof leave_application_paids_model.DataModel;
     AcademicCalendarsModel: typeof academic_calendars_model.DataModel;
     AcademicCalendarEventTypesModel: typeof academic_calendar_event_types.DataModel;
+    BranchEmployeeJobPayGradesModel: typeof branch_employee_job_pay_grades_model.DataModel;
+    BranchEmployeeJobPositionsModel: typeof branch_employee_job_positions_model.DataModel;
 
     sequelize: Sequelize;
 }
@@ -53,6 +57,10 @@ const db = async function (): Promise<models> {
     const AcademicCalendarsModel = academic_calendars_model.init(sequelize);
     const AcademicCalendarEventTypesModel =
         academic_calendar_event_types.init(sequelize);
+    const BranchEmployeeJobPayGradesModel =
+        branch_employee_job_pay_grades_model.init(sequelize);
+    const BranchEmployeeJobPositionsModel =
+        branch_employee_job_positions_model.init(sequelize);
 
     await sequelize.sync();
 
@@ -79,6 +87,8 @@ const db = async function (): Promise<models> {
         LeaveApplicationPaidsModel,
         AcademicCalendarsModel,
         AcademicCalendarEventTypesModel,
+        BranchEmployeeJobPayGradesModel,
+        BranchEmployeeJobPositionsModel,
 
         sequelize,
     };
