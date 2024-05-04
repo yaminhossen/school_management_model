@@ -29,6 +29,11 @@ import * as account_fees_collection_details_model from './99_account_fees_collec
 import * as money_receipt_books_model from './910_money_receipt_books_model';
 import * as investors_model from './911_investors_model';
 import * as vouchar_book_register_model from './912_vouchar_book_register_model';
+import * as assets_model from './101_assets_model';
+import * as asset_categories_model from './102_asset_categories_model';
+import * as asset_types_model from './103_asset_types_model';
+import * as asset_audits_model from './104_asset_audits_model';
+import * as asset_audit_items_model from './105_asset_audit_items_model';
 
 require('dotenv').config();
 
@@ -69,6 +74,11 @@ interface models {
     MoneyRecieptBooksModel: typeof money_receipt_books_model.DataModel;
     InvestorsModel: typeof investors_model.DataModel;
     VoucharBookRegistersModel: typeof vouchar_book_register_model.DataModel;
+    AssetsModel: typeof assets_model.DataModel;
+    AssetCategoriesModel: typeof asset_categories_model.DataModel;
+    AssetTypesModel: typeof asset_types_model.DataModel;
+    AssetAuditsModel: typeof asset_audits_model.DataModel;
+    AssetAuditItemsModel: typeof asset_audit_items_model.DataModel;
 
     sequelize: Sequelize;
 }
@@ -109,6 +119,11 @@ const db = async function (): Promise<models> {
     const InvestorsModel = investors_model.init(sequelize);
     const VoucharBookRegistersModel =
         vouchar_book_register_model.init(sequelize);
+    const AssetsModel = assets_model.init(sequelize);
+    const AssetCategoriesModel = asset_categories_model.init(sequelize);
+    const AssetTypesModel = asset_types_model.init(sequelize);
+    const AssetAuditsModel = asset_audits_model.init(sequelize);
+    const AssetAuditItemsModel = asset_audit_items_model.init(sequelize);
 
     await sequelize.sync();
 
@@ -151,6 +166,11 @@ const db = async function (): Promise<models> {
         InvestorsModel,
         MoneyRecieptBooksModel,
         VoucharBookRegistersModel,
+        AssetsModel,
+        AssetCategoriesModel,
+        AssetTypesModel,
+        AssetAuditsModel,
+        AssetAuditItemsModel,
 
         sequelize,
     };
