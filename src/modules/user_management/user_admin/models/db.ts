@@ -20,6 +20,14 @@ import * as branch_employee_payroll_transactions_model from './84_branch_employe
 import * as account_categories_model from './91_account_categories_model';
 import * as accounts_model from './92_accounts_model';
 import * as account_periods_model from './93_accounts_periods_model';
+import * as budgets_model from './94_budgets_model';
+import * as account_logs_model from './95_account_logs_model';
+import * as account_vouchers_model from './96_account_vouchers_model';
+import * as account_money_transfer_to_users_model from './97_account_money_transfer_to_user_model';
+import * as account_fees_collections_model from './98_account_fees_collections_model';
+import * as account_fees_collection_details_model from './99_account_fees_collection_details_model';
+// import * as money_receipt_books_model from './910_money_receipt_books_model';
+import * as investors_model from './911_investors_model';
 
 require('dotenv').config();
 
@@ -51,6 +59,14 @@ interface models {
     AccountCategoriesModel: typeof account_categories_model.DataModel;
     AccountsModel: typeof accounts_model.DataModel;
     AccountPeriodsModel: typeof account_periods_model.DataModel;
+    BudgetsModel: typeof budgets_model.DataModel;
+    AccountVouchersModel: typeof account_vouchers_model.DataModel;
+    AccountMoneyTransferToUsersModel: typeof account_money_transfer_to_users_model.DataModel;
+    AccountFeesCollectionsModel: typeof account_fees_collections_model.DataModel;
+    AccountFeesCollectionDetailsModel: typeof account_fees_collection_details_model.DataModel;
+    AccountLogsModel: typeof account_logs_model.DataModel;
+    // MoneyRecieptBooksModel: typeof money_receipt_books_model.DataModel;
+    InvestorsModel: typeof investors_model.DataModel;
 
     sequelize: Sequelize;
 }
@@ -78,6 +94,17 @@ const db = async function (): Promise<models> {
     const AccountCategoriesModel = account_categories_model.init(sequelize);
     const AccountsModel = accounts_model.init(sequelize);
     const AccountPeriodsModel = account_periods_model.init(sequelize);
+    const BudgetsModel = budgets_model.init(sequelize);
+    const AccountVouchersModel = account_vouchers_model.init(sequelize);
+    const AccountMoneyTransferToUsersModel =
+        account_money_transfer_to_users_model.init(sequelize);
+    const AccountFeesCollectionsModel =
+        account_fees_collections_model.init(sequelize);
+    const AccountFeesCollectionDetailsModel =
+        account_fees_collection_details_model.init(sequelize);
+    const AccountLogsModel = account_logs_model.init(sequelize);
+    // const MoneyRecieptBooksModel = money_receipt_books_model.init(sequelize);
+    const InvestorsModel = investors_model.init(sequelize);
 
     await sequelize.sync();
 
@@ -111,6 +138,13 @@ const db = async function (): Promise<models> {
         AccountCategoriesModel,
         AccountsModel,
         AccountPeriodsModel,
+        BudgetsModel,
+        AccountVouchersModel,
+        AccountMoneyTransferToUsersModel,
+        AccountFeesCollectionsModel,
+        AccountFeesCollectionDetailsModel,
+        AccountLogsModel,
+        InvestorsModel,
 
         sequelize,
     };
