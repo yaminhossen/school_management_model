@@ -28,6 +28,7 @@ import * as account_fees_collections_model from './98_account_fees_collections_m
 import * as account_fees_collection_details_model from './99_account_fees_collection_details_model';
 import * as money_receipt_books_model from './910_money_receipt_books_model';
 import * as investors_model from './911_investors_model';
+import * as vouchar_book_register_model from './912_vouchar_book_register_model';
 
 require('dotenv').config();
 
@@ -67,6 +68,7 @@ interface models {
     AccountLogsModel: typeof account_logs_model.DataModel;
     MoneyRecieptBooksModel: typeof money_receipt_books_model.DataModel;
     InvestorsModel: typeof investors_model.DataModel;
+    VoucharBookRegistersModel: typeof vouchar_book_register_model.DataModel;
 
     sequelize: Sequelize;
 }
@@ -105,6 +107,8 @@ const db = async function (): Promise<models> {
     const AccountLogsModel = account_logs_model.init(sequelize);
     const MoneyRecieptBooksModel = money_receipt_books_model.init(sequelize);
     const InvestorsModel = investors_model.init(sequelize);
+    const VoucharBookRegistersModel =
+        vouchar_book_register_model.init(sequelize);
 
     await sequelize.sync();
 
@@ -146,6 +150,7 @@ const db = async function (): Promise<models> {
         AccountLogsModel,
         InvestorsModel,
         MoneyRecieptBooksModel,
+        VoucharBookRegistersModel,
 
         sequelize,
     };
