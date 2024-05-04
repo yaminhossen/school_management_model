@@ -41,7 +41,7 @@ class DataModel extends Model<Infer, InferCreation> {
     declare id: CreationOptional<number>;
 
     declare branch_id: number;
-    declare account_category_Id: number;
+    declare account_category_id: number;
     declare title: string;
     declare description: string;
     declare date: string;
@@ -68,7 +68,7 @@ function init(sequelize: Sequelize) {
                 type: new DataTypes.BIGINT().UNSIGNED,
                 allowNull: true,
             },
-            account_category_Id: {
+            account_category_id: {
                 type: new DataTypes.BIGINT().UNSIGNED,
                 allowNull: true,
             },
@@ -89,7 +89,7 @@ function init(sequelize: Sequelize) {
                 allowNull: true,
             },
             amount: {
-                type: DataTypes.INTEGER.UNSIGNED,
+                type: DataTypes.BIGINT.UNSIGNED,
                 allowNull: true,
             },
 
