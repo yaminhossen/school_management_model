@@ -16,21 +16,21 @@ module.exports = {
 
 
         let data = [];
-        function set_data(id,branch_id,book_no,start_serial,end_serial) {
+        function set_data(id,branch_id,asset_id,useful_life_months,current_value,last_depreciation_date,after_depreciation_value,depreciation_interval,depreciation_amount,depreciation_unit,approximate_lasting_duration) {
             data.push({
-                id,branch_id,book_no,start_serial,end_serial,
+                id,branch_id,asset_id,useful_life_months,current_value,last_depreciation_date,after_depreciation_value,depreciation_interval,depreciation_amount,depreciation_unit,approximate_lasting_duration,
                 created_at:'2024-02-14',
                 updated_at:'2024-02-14',
             })
         }
-        set_data(1,1,'1',1001,1080);
-        set_data(2,2,'2',1001,2080);
-        set_data(3,3,'3',101,580);
+        set_data(1,1,1,9,10000,'2024-02-14',5500,12,4500,'1pc',20);
+        set_data(2,2,2,5,20000,'2024-02-14',10000,12,10000,'1pc',18);
+        set_data(3,3,3,9,30000,'2024-02-14',25000,8,5000,'1pc',17);
 
-       await queryInterface.bulkDelete('vouchar_book_register', null, {});
+       await queryInterface.bulkDelete('asset_depreciations', null, {});
 
        try {
-           await queryInterface.bulkInsert('vouchar_book_register', data, {});
+           await queryInterface.bulkInsert('asset_depreciations', data, {});
         
        } catch (error) {
         
@@ -45,7 +45,7 @@ module.exports = {
          * Example:
          * await queryInterface.bulkDelete('People', null, {});
          */
-        await queryInterface.bulkDelete('vouchar_book_register', null, {});
+        await queryInterface.bulkDelete('asset_depreciations', null, {});
     },
 };
 

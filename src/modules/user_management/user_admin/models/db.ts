@@ -34,6 +34,20 @@ import * as asset_categories_model from './102_asset_categories_model';
 import * as asset_types_model from './103_asset_types_model';
 import * as asset_audits_model from './104_asset_audits_model';
 import * as asset_audit_items_model from './105_asset_audit_items_model';
+import * as asset_depreciations_model from './106_asset_depreciations_model';
+import * as loan_applications_model from './1101_loan_applications_model';
+import * as loan_types_model from './1102_loan_types_model';
+import * as loan_payments_model from './1103_loan_payments_model';
+import * as meetings_model from './1201_meetings_model';
+import * as meeting_agendas_model from './1202_meeting_agendas_model';
+import * as meeting_attachments_model from './1203_meating_attachments_model';
+import * as tasks_model from './1301_tasks_model';
+import * as task_users_model from './1302_task_users_model';
+import * as task_variants_model from './1303_task_variants_model';
+import * as task_variant_tasks_model from './1304_task_variant_tasks_model';
+import * as task_group_tasks_model from './1305_task_group_tasks_model';
+import * as task_group_users_model from './1306_task_group_users_model';
+import * as task_groups_model from './1307_task_groups_model';
 
 require('dotenv').config();
 
@@ -79,6 +93,20 @@ interface models {
     AssetTypesModel: typeof asset_types_model.DataModel;
     AssetAuditsModel: typeof asset_audits_model.DataModel;
     AssetAuditItemsModel: typeof asset_audit_items_model.DataModel;
+    AssetDepreciationsModel: typeof asset_depreciations_model.DataModel;
+    LoanApplicationsModel: typeof loan_applications_model.DataModel;
+    LoanTypesModel: typeof loan_types_model.DataModel;
+    LoanPaymentsModel: typeof loan_payments_model.DataModel;
+    MeetingsModel: typeof meetings_model.DataModel;
+    MeetingAgendasModel: typeof meeting_agendas_model.DataModel;
+    MeetingAttachmentsModel: typeof meeting_attachments_model.DataModel;
+    TasksModel: typeof tasks_model.DataModel;
+    TaskUsersModel: typeof task_users_model.DataModel;
+    TaskVariantsModel: typeof task_variants_model.DataModel;
+    TaskVariantTasksModel: typeof task_variant_tasks_model.DataModel;
+    TaskGroupTasksModel: typeof task_group_tasks_model.DataModel;
+    TaskGroupUsersModel: typeof task_group_users_model.DataModel;
+    TaskGroupsModel: typeof task_groups_model.DataModel;
 
     sequelize: Sequelize;
 }
@@ -124,6 +152,20 @@ const db = async function (): Promise<models> {
     const AssetTypesModel = asset_types_model.init(sequelize);
     const AssetAuditsModel = asset_audits_model.init(sequelize);
     const AssetAuditItemsModel = asset_audit_items_model.init(sequelize);
+    const AssetDepreciationsModel = asset_depreciations_model.init(sequelize);
+    const LoanApplicationsModel = loan_applications_model.init(sequelize);
+    const LoanTypesModel = loan_types_model.init(sequelize);
+    const LoanPaymentsModel = loan_payments_model.init(sequelize);
+    const MeetingsModel = meetings_model.init(sequelize);
+    const MeetingAgendasModel = meeting_agendas_model.init(sequelize);
+    const MeetingAttachmentsModel = meeting_attachments_model.init(sequelize);
+    const TasksModel = tasks_model.init(sequelize);
+    const TaskUsersModel = task_users_model.init(sequelize);
+    const TaskVariantsModel = task_variants_model.init(sequelize);
+    const TaskVariantTasksModel = task_variant_tasks_model.init(sequelize);
+    const TaskGroupTasksModel = task_group_tasks_model.init(sequelize);
+    const TaskGroupUsersModel = task_group_users_model.init(sequelize);
+    const TaskGroupsModel = task_groups_model.init(sequelize);
 
     await sequelize.sync();
 
@@ -171,6 +213,20 @@ const db = async function (): Promise<models> {
         AssetTypesModel,
         AssetAuditsModel,
         AssetAuditItemsModel,
+        AssetDepreciationsModel,
+        LoanApplicationsModel,
+        LoanPaymentsModel,
+        LoanTypesModel,
+        MeetingsModel,
+        MeetingAgendasModel,
+        MeetingAttachmentsModel,
+        TasksModel,
+        TaskUsersModel,
+        TaskVariantsModel,
+        TaskVariantTasksModel,
+        TaskGroupTasksModel,
+        TaskGroupUsersModel,
+        TaskGroupsModel,
 
         sequelize,
     };

@@ -16,21 +16,21 @@ module.exports = {
 
 
         let data = [];
-        function set_data(id,branch_id,book_no,start_serial,end_serial) {
+        function set_data(id,branch_id,loan_id,account_log_id,date,amount,next_payment_date,rest_amount,paid_amount,received_by) {
             data.push({
-                id,branch_id,book_no,start_serial,end_serial,
+                id,branch_id,loan_id,account_log_id,date,amount,next_payment_date,rest_amount,paid_amount,received_by,
                 created_at:'2024-02-14',
                 updated_at:'2024-02-14',
             })
         }
-        set_data(1,1,'1',1001,1080);
-        set_data(2,2,'2',1001,2080);
-        set_data(3,3,'3',101,580);
+        set_data(1,1,1,1,'2024-04-14',10000,'2024-05-14',5000,5000,1);
+        set_data(2,2,2,2,'2024-04-14',20000,'2024-05-14',5000,15000,1);
+        set_data(3,3,3,3,'2024-04-14',15000,'2024-05-14',5000,10000,1);
 
-       await queryInterface.bulkDelete('vouchar_book_register', null, {});
+       await queryInterface.bulkDelete('loan_payments', null, {});
 
        try {
-           await queryInterface.bulkInsert('vouchar_book_register', data, {});
+           await queryInterface.bulkInsert('loan_payments', data, {});
         
        } catch (error) {
         
@@ -45,7 +45,7 @@ module.exports = {
          * Example:
          * await queryInterface.bulkDelete('People', null, {});
          */
-        await queryInterface.bulkDelete('vouchar_book_register', null, {});
+        await queryInterface.bulkDelete('loan_payments', null, {});
     },
 };
 

@@ -16,21 +16,20 @@ module.exports = {
 
 
         let data = [];
-        function set_data(id,branch_id,book_no,start_serial,end_serial) {
+        function set_data(id,branch_id,title,description) {
             data.push({
-                id,branch_id,book_no,start_serial,end_serial,
+                id,branch_id,title,description,
                 created_at:'2024-02-14',
                 updated_at:'2024-02-14',
             })
         }
-        set_data(1,1,'1',1001,1080);
-        set_data(2,2,'2',1001,2080);
-        set_data(3,3,'3',101,580);
+        set_data(1,1,'student loan','i have to pay my tution fees');
+        set_data(2,2,'Karje hasana','i have to pay my semester fees');
 
-       await queryInterface.bulkDelete('vouchar_book_register', null, {});
+       await queryInterface.bulkDelete('loan_types', null, {});
 
        try {
-           await queryInterface.bulkInsert('vouchar_book_register', data, {});
+           await queryInterface.bulkInsert('loan_types', data, {});
         
        } catch (error) {
         
@@ -45,7 +44,7 @@ module.exports = {
          * Example:
          * await queryInterface.bulkDelete('People', null, {});
          */
-        await queryInterface.bulkDelete('vouchar_book_register', null, {});
+        await queryInterface.bulkDelete('loan_types', null, {});
     },
 };
 

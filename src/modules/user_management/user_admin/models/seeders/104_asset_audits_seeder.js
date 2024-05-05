@@ -16,21 +16,21 @@ module.exports = {
 
 
         let data = [];
-        function set_data(id,branch_id,book_no,start_serial,end_serial) {
+        function set_data(id,branch_id,title,date,description) {
             data.push({
-                id,branch_id,book_no,start_serial,end_serial,
+                id,branch_id,title,date,description,
                 created_at:'2024-02-14',
                 updated_at:'2024-02-14',
             })
         }
-        set_data(1,1,'1',1001,1080);
-        set_data(2,2,'2',1001,2080);
-        set_data(3,3,'3',101,580);
+        set_data(1,1,'Furniture audit','2024-02-14','how much furniture is workable');
+        set_data(2,2,'Computer Check','2024-02-14','how much computer is ok');
+        set_data(3,3,'Electrick goods','2024-02-14','all fan light and switch is cheacked');
 
-       await queryInterface.bulkDelete('vouchar_book_register', null, {});
+       await queryInterface.bulkDelete('asset_audits', null, {});
 
        try {
-           await queryInterface.bulkInsert('vouchar_book_register', data, {});
+           await queryInterface.bulkInsert('asset_audits', data, {});
         
        } catch (error) {
         
@@ -45,7 +45,7 @@ module.exports = {
          * Example:
          * await queryInterface.bulkDelete('People', null, {});
          */
-        await queryInterface.bulkDelete('vouchar_book_register', null, {});
+        await queryInterface.bulkDelete('asset_audits', null, {});
     },
 };
 
