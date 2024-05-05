@@ -16,21 +16,21 @@ module.exports = {
 
 
         let data = [];
-        function set_data(id,branch_id,title,description,date,is_completed) {
+        function set_data(id,branch_id,title,color,description) {
             data.push({
-                id,branch_id,title,description,date,is_completed,
+                id,branch_id,title,color,description,
                 created_at:'2024-02-14',
                 updated_at:'2024-02-14',
             })
         }
-        set_data(1,1,'Routine create','Class routine create before next sunday','2024-02-14','pending');
-        set_data(2,2,'Class schedule','Class schedule create before next monday','2024-02-14','pending');
-        set_data(3,3,'Fees collect','exam fee colect before next sunday','2024-02-14','pending');
+        set_data(1,1,'Routine create','green','Class routine create before next sunday');
+        set_data(2,2,'Class schedule','red','Class schedule create before next monday');
+        set_data(3,3,'Fees collect','yellow','exam fee colect before next sunday');
 
-       await queryInterface.bulkDelete('tasks', null, {});
+       await queryInterface.bulkDelete('task_variants', null, {});
 
        try {
-           await queryInterface.bulkInsert('tasks', data, {});
+           await queryInterface.bulkInsert('task_variants', data, {});
         
        } catch (error) {
         
@@ -45,7 +45,7 @@ module.exports = {
          * Example:
          * await queryInterface.bulkDelete('People', null, {});
          */
-        await queryInterface.bulkDelete('tasks', null, {});
+        await queryInterface.bulkDelete('task_variants', null, {});
     },
 };
 
