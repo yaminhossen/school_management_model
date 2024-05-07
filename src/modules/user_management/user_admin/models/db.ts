@@ -48,6 +48,11 @@ import * as task_variant_tasks_model from './1304_task_variant_tasks_model';
 import * as task_group_tasks_model from './1305_task_group_tasks_model';
 import * as task_group_users_model from './1306_task_group_users_model';
 import * as task_groups_model from './1307_task_groups_model';
+import * as exams_model from './1401_exams_model';
+import * as exam_preperation_reports_model from './1402_exam_preparation_reports_model';
+import * as exam_student_marks_model from './1403_exam_student_marks_model';
+import * as exam_routines_model from './1404_exam_routines_model';
+import * as exam_hall_guard_plans_model from './1405_exam_hall_guard_plans_model';
 
 require('dotenv').config();
 
@@ -107,6 +112,11 @@ interface models {
     TaskGroupTasksModel: typeof task_group_tasks_model.DataModel;
     TaskGroupUsersModel: typeof task_group_users_model.DataModel;
     TaskGroupsModel: typeof task_groups_model.DataModel;
+    ExamsModel: typeof exams_model.DataModel;
+    ExamPreperationReportsModel: typeof exam_preperation_reports_model.DataModel;
+    ExamStudentMarksModel: typeof exam_student_marks_model.DataModel;
+    ExamRoutinesModel: typeof exam_routines_model.DataModel;
+    ExamHallGuardPlansModel: typeof exam_hall_guard_plans_model.DataModel;
 
     sequelize: Sequelize;
 }
@@ -166,6 +176,11 @@ const db = async function (): Promise<models> {
     const TaskGroupTasksModel = task_group_tasks_model.init(sequelize);
     const TaskGroupUsersModel = task_group_users_model.init(sequelize);
     const TaskGroupsModel = task_groups_model.init(sequelize);
+    const ExamsModel = exams_model.init(sequelize);
+    const ExamPreperationReportsModel = exam_preperation_reports_model.init(sequelize);
+    const ExamStudentMarksModel = exam_student_marks_model.init(sequelize);
+    const ExamRoutinesModel = exam_routines_model.init(sequelize);
+    const ExamHallGuardPlansModel = exam_hall_guard_plans_model.init(sequelize);
 
     await sequelize.sync();
 
@@ -227,6 +242,11 @@ const db = async function (): Promise<models> {
         TaskGroupTasksModel,
         TaskGroupUsersModel,
         TaskGroupsModel,
+        ExamsModel,
+        ExamPreperationReportsModel,
+        ExamStudentMarksModel,
+        ExamRoutinesModel,
+        ExamHallGuardPlansModel,
 
         sequelize,
     };
